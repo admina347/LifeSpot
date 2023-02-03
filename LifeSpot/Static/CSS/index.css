@@ -39,3 +39,37 @@ aside {
 body {
     padding-left: 11%;
 }
+
+.food {
+    color: orange;
+  }
+  .household {
+    color: green;
+  }
+  .vet {
+    color: lightblue;
+  }
+/*Глобальные стили для хедеров на всём сайте*/
+header{
+    color: black;
+    padding-left: 1%;
+    padding-top: 1.2%;
+ }
+ /*Стиль хедера для главной страницы имеет приоритет,
+ так как используется селектор по идентификатору*/
+ #header-index{
+    color: #44453f;
+ }
+
+ header,body,.video-container{
+    background-color: linen;
+ }
+
+ /* Стили футера */
+footer {
+    position: absolute;
+    bottom: 0;
+    font-size: medium;
+    color: dimgrey;
+    line-height: 66%
+ }
