@@ -33,6 +33,7 @@ namespace LifeSpot
                     var html = await File.ReadAllTextAsync(viewPath);
                     await context.Response.WriteAsync(html);
                 });
+                //.Net 5.0 не поддерживается в Debain 11
                 endpoints.MapGet("/Static/CSS/index.css", async context =>
                 {
                     // по аналогии со страницей Index настроим на нашем сервере путь до страницы со стилями, чтобы браузер знал, откуда их загружать
