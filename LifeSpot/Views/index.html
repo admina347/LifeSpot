@@ -6,13 +6,20 @@
     <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css">
     <script src="../Static/JS/index.js"></script>
     <!-- Внутренний скрипт с вызовами функций -->
-    <!-- Внутренний скрипт с вызовами функций -->
     <script>
-        // Создадим и обработаем сессию
-        //let session = handleSession();
-   
-        // Логируем в консоль.
-        //sessionLog(session)
+        // Проверка на возраст
+        //checkAge();
+        
+        // сохранение сессии
+        handleSession()
+        
+        // вывод данных сессии в консоль
+        sessionLog();
+     
+        // функция для получения пользовательского ввода    
+        const inputParseFunction = function(){
+            return document.getElementsByTagName('input')[0].value.toLowerCase();
+        }
     </script>
     <!-- .Net 5.0 не поддерживается в Debain 11-->
     <title>LifeSpot</title>
@@ -42,7 +49,7 @@
         <a href="/">
             <p>Все трансляции</p>
         </a>
-        <a href="/">
+        <a href="about.html">
             <p>О проекте</p>
         </a>
     </div>
