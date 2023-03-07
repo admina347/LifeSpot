@@ -1,11 +1,3 @@
-/**
- * @class ItcSlider
- * @version 1.0.0
- * @author https://github.com/itchief
- * @copyright Alexander Maltsev 2020 - 2022
- * @license MIT (https://github.com/itchief/ui-components/blob/master/LICENSE)
- * @tutorial https://itchief.ru/javascript/slider
- */
 class ItcSlider {
     static #EL_WRAPPER = 'wrapper';
     static #EL_ITEMS = 'items';
@@ -28,7 +20,7 @@ class ItcSlider {
      * @param {Object} config
      * @param {String} prefix
      */
-    constructor(el, config = {}, prefix = 'itc-slider__') {
+    constructor(el, config = {}, prefix = 'slider__') {
   
       this.#state = {
         prefix: prefix, // префикс для классов
@@ -77,7 +69,7 @@ class ItcSlider {
      * @param {Object} config
      * @param {String} prefix
      */
-    static getOrCreateInstance(target, config = {}, prefix = 'itc-slider__') {
+    static getOrCreateInstance(target, config = {}, prefix = 'slider__') {
       try {
         const elSlider = typeof target === 'string' ? document.querySelector(target) : target;
         const result = this.getInstance(elSlider);
@@ -94,7 +86,7 @@ class ItcSlider {
   
     // статический метод для активирования элементов как ItcSlider на основе data-атрибутов
     static createInstances() {
-      document.querySelectorAll('[data-slider="itc-slider"]').forEach((el) => {
+      document.querySelectorAll('[data-slider="slider"]').forEach((el) => {
         const dataset = el.dataset;
         const params = {};
         Object.keys(dataset).forEach((key) => {
@@ -178,7 +170,7 @@ class ItcSlider {
     }
   
     #onSwipeStart(e) {
-      if (!e.target.closest('.itc-slider__btn')) {
+      if (!e.target.closest('.slider__btn')) {
         e.preventDefault();
         this.#autoplay('stop');
         const event = e.type.search('touch') === 0 ? e.touches[0] : e;
@@ -236,7 +228,7 @@ class ItcSlider {
         'mouseenter': [this.#state.el, this.#onMouseEnter.bind(this), true],
         'mouseleave': [this.#state.el, this.#onMouseLeave.bind(this), true],
         'resize': [window, this.#onResize.bind(this), this.#config.refresh],
-        'itc-slider__transition-start': [this.#state.elItems, this.#onTransitionStart.bind(this), this.#config.loop],
+        'slider__transition-start': [this.#state.elItems, this.#onTransitionStart.bind(this), this.#config.loop],
         'transitionend': [this.#state.elItems, this.#onTransitionEnd.bind(this), this.#config.loop],
         'touchstart': [this.#state.el, this.#onSwipeStart.bind(this), this.#config.swipe],
         'mousedown': [this.#state.el, this.#onSwipeStart.bind(this), this.#config.swipe],
@@ -355,7 +347,7 @@ class ItcSlider {
       this.#updateClasses();
       this.#state.translate = transform;
       this.#state.elItems.style.transform = `translate3D(${transform}px, 0px, 0.1px)`;
-      this.#state.elItems.dispatchEvent(new CustomEvent('itc-slider__transition-start', {
+      this.#state.elItems.dispatchEvent(new CustomEvent('slider__transition-start', {
         bubbles: true
       }));
     }
